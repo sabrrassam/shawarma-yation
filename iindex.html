@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مطعم شاورمايشن | خيارك الصح .. في الوقت الصح</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #d62828;
+      --secondary: #f77f00;
+      --accent: #fcbf49;
+      --dark-bg: #120b09;
+      --card-bg: rgba(28, 17, 14, 0.9);
+      --text-light: #fff5eb;
+      --text-muted: #d9cac1;
+      --glow-red: 0 0 20px rgba(214, 40, 40, 0.6);
+      --glow-orange: 0 0 20px rgba(247, 127, 0, 0.6);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+
+    /* شريط التنقل */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 0.9rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(18, 11, 9, 0.85);
+      backdrop-filter: blur(14px);
+      z-index: 1000;
+      border-bottom: 2px solid rgba(214, 40, 40, 0.35);
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      font-weight: 900;
+      padding: 5px 14px;
+      border-radius: 10px;
+      font-size: 1.35rem;
+      box-shadow: var(--glow-red);
+    }
+
+    .slogan-nav {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary);
+      text-shadow: 0 0 10px rgba(247, 127, 0, 0.8);
+    }
+
+    /* المشاهد الكبيرة (البارالاكس) */
+    .parallax-hero {
+      min-height: 85vh;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .parallax-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle, rgba(18, 11, 9, 0.65) 0%, rgba(18, 11, 9, 0.94) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+    }
+
+    .tagline {
+      display: inline-block;
+      padding: 0.4rem 1.4rem;
+      border: 1px solid var(--secondary);
+      border-radius: 50px;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--glow-orange);
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .hero-content h1 span {
+      color: var(--secondary);
+      text-shadow: var(--glow-orange);
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    /* زر التوهج النيوني */
+    .btn-glow {
+      display: inline-block;
+      padding: 0.85rem 2.4rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      border-radius: 40px;
+      box-shadow: 0 0 20px rgba(214, 40, 40, 0.7), 0 0 40px rgba(247, 127, 0, 0.4);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-glow:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 0 30px rgba(247, 127, 0, 0.9), 0 0 60px rgba(214, 40, 40, 0.8);
+      color: #fff;
+    }
+
+    /* الأقسام الفاصلة */
+    .menu-section {
+      padding: 5.5rem 1.5rem;
+      position: relative;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .menu-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(16, 10, 8, 0.92);
+    }
+
+    .section-container {
+      position: relative;
+      z-index: 2;
+      max-width: 1250px;
+      margin: auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.3rem;
+      color: var(--secondary);
+      font-weight: 900;
+      text-shadow: var(--glow-orange);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-header p {
+      color: var(--accent);
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .extra-tag-banner {
+      display: inline-block;
+      background: rgba(214, 40, 40, 0.25);
+      border: 1px dashed var(--secondary);
+      color: #fff;
+      padding: 0.3rem 1.2rem;
+      border-radius: 20px;
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    /* شبكة البطاقات */
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid rgba(247, 127, 0, 0.25);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--secondary);
+      box-shadow: 0 12px 30px rgba(247, 127, 0, 0.35);
+    }
+
+    .card-img-wrapper {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background: #201411;
+    }
+
+    .card-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover .card-img-wrapper img {
+      transform: scale(1.08);
+    }
+
+    .card-content {
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.6rem;
+    }
+
+    .item-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .prices-badge-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 3px;
+    }
+
+    .price-tag {
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: 900;
+      text-shadow: 0 0 10px rgba(252, 191, 73, 0.5);
+    }
+
+    .price-sub {
+      font-size: 0.85rem;
+      color: #ff9e00;
+      font-weight: 700;
+    }
+
+    .item-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+      padding-top: 0.7rem;
+    }
+
+    .btn-add {
+      background: rgba(214, 40, 40, 0.2);
+      color: #fff;
+      border: 1px solid var(--primary);
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-add:hover {
+      background: var(--primary);
+      box-shadow: var(--glow-red);
+    }
+
+    /* معلومات الاتصال والموقع */
+    .footer-bar {
+      background: #0b0706;
+      border-top: 2px solid var(--primary);
+      padding: 3rem 1.5rem 6rem;
+      text-align: center;
+    }
+
+    .info-card {
+      max-width: 750px;
+      margin: auto;
+      background: rgba(28, 17, 14, 0.95);
+      border: 1px solid rgba(247, 127, 0, 0.3);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    }
+
+    .phone-number {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--accent);
+      text-shadow: var(--glow-orange);
+      direction: ltr;
+      display: inline-block;
+      margin: 1rem 0;
+      text-decoration: none;
+    }
+
+    .location-text {
+      font-size: 1.25rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    /* سلة الطلبات العائمة */
+    .cart-float {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      padding: 0.9rem 1.8rem;
+      border-radius: 50px;
+      box-shadow: 0 0 25px rgba(247, 127, 0, 0.7);
+      font-weight: 800;
+      cursor: pointer;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* خلفيات البارالاكس */
+    .bg-main-hero {
+      background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=1920&q=80');
+    }
+    .bg-sec-shawarma {
+      background-image: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)), url('https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&w=1920&q=80');
+    }
+    .bg-sec-burger {
+      background-image: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)), url('https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1920&q=80');
+    }
+    .bg-sec-meals {
+      background-image: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)), url('https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=1920&q=80');
+    }
+    .bg-sec-tortilla {
+      background-image: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)), url('https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=1920&q=80');
+    }
+    .bg-sec-drinks {
+      background-image: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)), url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1920&q=80');
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0.8rem 1.2rem; }
+      .nav-links { display: none; }
+      .hero-content h1 { font-size: 2.2rem; }
+      .phone-number { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شريط التنقل العلوي -->
+  <nav>
+    <div class="brand-box">
+      <div class="logo-badge">شاورمايشن</div>
+      <span class="slogan-nav">طعم .. مذاق .. لذاذه</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#plates">الصحون</a></li>
+      <li><a href="#sandwiches">السندوتشات</a></li>
+      <li><a href="#burgers">البرجر</a></li>
+      <li><a href="#meals">الوجبات</a></li>
+      <li><a href="#tortilla">تورتيلا وبطاطس</a></li>
+      <li><a href="#drinks">العصائر</a></li>
+      <li><a href="#contact">الطلب</a></li>
+    </ul>
+  </nav>
+
+  <!-- المشهد الترحيبي الرئيسي -->
+  <section class="parallax-hero bg-main-hero">
+    <div class="hero-content">
+      <span class="tagline">خيارك الصح .. في الوقت الصح ✨</span>
+      <h1>مطعم <span>شاورمايشن</span></h1>
+      <p>قائمة كاملة تضم أشهى صحون وسندوتشات الشاورما، البرجر، الوجبات والعصائر الطازجة</p>
+      <a href="#plates" class="btn-glow">استعرض المنيو بالكامل 🔥</a>
+    </div>
+  </section>
+
+  <!-- القسم 1: صحون شاورمايشن -->
+  <section class="menu-section bg-sec-shawarma" id="plates">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>صحون شاورمايشن</h2>
+        <p>أطباق ممتعة تقدم مع البطاطس والمخلل والصلصات</p>
+        <span class="extra-tag-banner">الإضافات: دبل جبن 4 ر.ي</span>
+      </div>
+
+      <div class="items-grid">
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=500&q=80" alt="صحن عربي كبير">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">صحن عربي كبير</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">18 ر.ي (صافي)</span>
+                <span class="price-sub">مع الجبن: 20 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">شاورما مقطعة مع بطاطس ومخلل وثومية وصوصات متنوعة.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('صحن عربي كبير', 18)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&w=500&q=80" alt="صحن عربي وسط">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">صحن عربي وسط</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">16 ر.ي (صافي)</span>
+                <span class="price-sub">مع الجبن: 18 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">كمية وسط مثالية من الشاورما المقطعة مع خبز الصاج والمقبلات.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('صحن عربي وسط', 16)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=500&q=80" alt="صحن عربي صغير">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">صحن عربي صغير</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">13 ر.ي (صافي)</span>
+                <span class="price-sub">مع الجبن: 15 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">صحن شاورما فردي سريع وغني بالنكهات والصلصة الخاصة.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('صحن عربي صغير', 13)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=500&q=80" alt="باشكا إيطالي">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">باشكا إيطالي</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">18 ر.ي (صافي)</span>
+                <span class="price-sub">مع الجبن: 20 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">شاورما محضرة على الطريقة الإيطالية مع الصوصات والخلطة المخبوزة.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('باشكا إيطالي', 18)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=500&q=80" alt="كلوب زنجر">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">كلوب زنجر</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">18 ر.ي (صافي)</span>
+                <span class="price-sub">مع الجبن: 20 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">طبقات خبز توست مقرمش محشو بصدور الدجاج الزنجر والصلصة.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('كلوب زنجر', 18)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=500&q=80" alt="كلوب شاورما">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">كلوب شاورما</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">18 ر.ي (صافي)</span>
+                <span class="price-sub">مع الجبن: 20 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">كلوب ساندوتش محمص ومحشو بشرائح الشاورما والمايونيز والجبنة.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('كلوب شاورما', 18)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- القسم 2: سندوتشات شاورمايشن -->
+  <section class="menu-section bg-sec-shawarma" id="sandwiches">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>سندوتشات شاورمايشن</h2>
+        <p>خبز صاج وتوست وبرجر بألذ لفات الشاورما</p>
+        <span class="extra-tag-banner">الإضافات: دبل جبن 2 ريال</span>
+      </div>
+
+      <div class="items-grid">
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&w=500&q=80" alt="شاورما صاروخ">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">شاورما صاروخ</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">8 ر.ي (صافي)</span>
+                <span class="price-sub">مع الجبن: 9 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">ساندوتش صاروخ كبير ملفوف بعناية ومحمص ومتبل بالثومية اللذيذة.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('شاورما صاروخ', 8)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=500&q=80" alt="شاورما وسط">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">شاورما وسط</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">5 ر.ي (صافي)</span>
+                <span class="price-sub">مع الجبن: 6 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">لفة شاورما كلاسيكية بالحجم المناسب والخفيف.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('شاورما وسط', 5)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&w=500&q=80" alt="ساندوتش شاورمايشن">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">ساندوتش شاورمايشن</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">10 ر.ي (صافي)</span>
+                <span class="price-sub">مع الجبن: 11 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">الساندوتش الخاص بالمطعم بخلطة شاورمايشن الحصرية.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('ساندوتش شاورمايشن', 10)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=500&q=80" alt="شاورما جامبو">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">شاورما جامبو</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">9 ر.ي (صافي)</span>
+                <span class="price-sub">مع الجبن: 10 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">حجم جامبو مشبع مليء بقطع الدجاج المتبلة والصوص.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('شاورما جامبو', 9)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=500&q=80" alt="توست شاورما">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">توست شاورما</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">8 ر.ي (صافي)</span>
+                <span class="price-sub">مع الجبن: 9 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">شاورما داخل شرائح توست محمص وذهبي.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('توست شاورما', 8)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="برجر شاورما">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">برجر شاورما</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">8 ر.ي (صافي)</span>
+                <span class="price-sub">مع الجبن: 9 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">خبز برجر طازج محشو بشاورما الدجاج والصوص والمايونيز.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('برجر شاورما', 8)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- القسم 3: قسم البرجر -->
+  <section class="menu-section bg-sec-burger" id="burgers">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>قسم البرجر</h2>
+        <p>خيارات مشوية ومقلية ترضي كل الأذواق</p>
+        <span class="extra-tag-banner">الإضافات: دبل جبن 2 ر.ي</span>
+      </div>
+
+      <div class="items-grid">
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="برجر دجاج">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">برجر دجاج (مشوي - مقلي)</span>
+              <span class="price-tag">10 ر.ي</span>
+            </div>
+            <p class="item-desc">قطعة دجاج متبلة ومحضرة حسب اختيارك مع الخس والصلصة.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('برجر دجاج', 10)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80" alt="برجر دبل دجاج">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">برجر دبل دجاج (مشوي - مقلي)</span>
+              <span class="price-tag">15 ر.ي</span>
+            </div>
+            <p class="item-desc">شريحتين دجاج مشوي أو مقلي مع الجبن الذائب والخس.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('برجر دبل دجاج', 15)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80" alt="برجر زنجر">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">برجر زنجر</span>
+              <span class="price-tag">9 ر.ي</span>
+            </div>
+            <p class="item-desc">دجاج زنجر كريسبي حار مع صوص المايونيز والجبنة.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('برجر زنجر', 9)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80" alt="برجر زنجر دبل">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">برجر زنجر دبل</span>
+              <span class="price-tag">15 ر.ي</span>
+            </div>
+            <p class="item-desc">شريحتين من الزنجر المقرمش الحار الحجم المضاعف.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('برجر زنجر دبل', 15)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="جانبو زنجر">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">جانبو زنجر</span>
+              <span class="price-tag">11 ر.ي</span>
+            </div>
+            <p class="item-desc">قطعة زنجر كبيرة ومقرمشة داخل خبز برجر كبير.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('جانبو زنجر', 11)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=500&q=80" alt="توست دجاج برجر">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">توست دجاج برجر (مشوي-مقلي)</span>
+              <span class="price-tag">9 ر.ي</span>
+            </div>
+            <p class="item-desc">دجاج برجر مشوي أو مقلي محمص بشرائح التوست الذهبي.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('توست دجاج برجر', 9)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80" alt="جانبو دجاج برجر">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">جانبو دجاج برجر (مشوي - مقلي)</span>
+              <span class="price-tag">11 ر.ي</span>
+            </div>
+            <p class="item-desc">برجر دجاج بحجم جامبو مع الصوصات والجبن والخضار الطازج.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('جانبو دجاج برجر', 11)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- القسم 4: وجبات شاورمايشن -->
+  <section class="menu-section bg-sec-meals" id="meals">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>قسم الوجبات المتكاملة</h2>
+        <p>وجبات متكاملة مع البطاطس والمشروب والصلصات اللذيذة</p>
+        <span class="extra-tag-banner">الإضافات: دبل جبن 2 ر.ي</span>
+      </div>
+
+      <div class="items-grid">
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80" alt="تشيكن فرايز صغير">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">تشيكن فرايز صغير</span>
+              <span class="price-tag">11 ر.ي</span>
+            </div>
+            <p class="item-desc">بطاطس مقلية مغطاة بقطع الدجاج والجبنة والصلصات الحارة.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('تشيكن فرايز صغير', 11)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80" alt="تشيكن فرايز كبير">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">تشيكن فرايز كبير</span>
+              <span class="price-tag">16 ر.ي</span>
+            </div>
+            <p class="item-desc">صحن تشيكن فرايز كبير مشبع بالدجاج المقرمش والجبن الذائب.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('تشيكن فرايز كبير', 16)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=500&q=80" alt="وجبة زنجر">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">وجبة زنجر</span>
+              <span class="price-tag">16 ر.ي</span>
+            </div>
+            <p class="item-desc">ساندوتش زنجر مقرمش يقدم مع البطاطس المقلية والصلصة ومشروب.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('وجبة زنجر', 16)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="وجبة برجر دجاج">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">وجبة برجر دجاج (مشوي - مقلي)</span>
+              <span class="price-tag">15 ر.ي</span>
+            </div>
+            <p class="item-desc">وجبة برجر دجاج متكاملة مع أصابع البطاطس والصلصة اللذيذة.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('وجبة برجر دجاج', 15)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=500&q=80" alt="وجبة توست دجاج">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">وجبة توست دجاج (مشوي - مقلي)</span>
+              <span class="price-tag">14 ر.ي</span>
+            </div>
+            <p class="item-desc">وجبة ساندوتش توست دجاج محمص مع بطاطس وصوصات منعشة.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('وجبة توست دجاج', 14)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- القسم 5: تورتيلا وبطاطس شاورمايشن -->
+  <section class="menu-section bg-sec-tortilla" id="tortilla">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>تورتيلا وبطاطس شاورمايشن</h2>
+        <p>خبز التورتيلا المكسيكي اللذيذ وأطباق البطاطس الذهبية</p>
+        <span class="extra-tag-banner">الإضافات: دبل جبن 2 ر.ي</span>
+      </div>
+
+      <div class="items-grid">
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=80" alt="تورتيلا دجاج برجر صغير">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">تورتيلا دجاج برجر صغير (مشوي - مقلي)</span>
+              <span class="price-tag">8 ر.ي</span>
+            </div>
+            <p class="item-desc">لفة تورتيلا خفيفة محشوة ببرجر الدجاج والصوص.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('تورتيلا دجاج صغير', 8)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=80" alt="تورتيلا دجاج برجر كبير">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">تورتيلا دجاج برجر كبير (مشوي - مقلي)</span>
+              <span class="price-tag">12 ر.ي</span>
+            </div>
+            <p class="item-desc">تورتيلا كبيرة الحجم غنية بشرائح الدجاج والجبن السائل.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('تورتيلا دجاج كبير', 12)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=80" alt="تورتيلا زنجر كبير">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">تورتيلا زنجر كبير</span>
+              <span class="price-tag">12 ر.ي</span>
+            </div>
+            <p class="item-desc">قطع دجاج زنجر مقرمشة حارة ملفوفة في خبز تورتيلا محمص.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('تورتيلا زنجر كبير', 12)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=80" alt="تورتيلا زنجر برجر صغير">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">تورتيلا زنجر برجر صغير</span>
+              <span class="price-tag">9 ر.ي</span>
+            </div>
+            <p class="item-desc">لفة تورتيلا زنجر فردية مقرمشة ولذيذة.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('تورتيلا زنجر صغير', 9)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=500&q=80" alt="سندوتشات مسحب دجاج كبير">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">سندوتشات مسحب دجاج كبير</span>
+              <span class="price-tag">11 ر.ي</span>
+            </div>
+            <p class="item-desc">أصابع مسحب دجاج كريسبي مع صوص الثومية والبطاطس المقرمشة.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('مسحب دجاج كبير', 11)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=500&q=80" alt="سندوتشات مسحب دجاج صغير">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">سندوتشات مسحب دجاج صغير</span>
+              <span class="price-tag">8 ر.ي</span>
+            </div>
+            <p class="item-desc">ساندوتش مسحب دجاج خفيف بنكهة شهية.</p>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
+              <button class="btn-add" onclick="addItem('مسحب دجاج صغير', 8)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80" alt="صحن بطاطس صغير">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">صحن بطاطس صغير</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">3 ر.ي (صافي)</span>
+                <span class="price-sub">مع الجبن: 6 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">أصابع بطاطس مقلية ومقرمشة ومتبلة.</p>
+            <div class="card-footer">
+              <button class="btn-add" onclick="addItem('بطاطس صغير', 3)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80" alt="صحن بطاطس كبير">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">صحن بطاطس كبير</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">5 ر.ي (صافي)</span>
+                <span class="price-sub">مع الجبن: 8 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">صحن بطاطس حجم عائلي مقرمش مع خيار الجبنة الذائبة.</p>
+            <div class="card-footer">
+              <button class="btn-add" onclick="addItem('بطاطس كبير', 5)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- القسم 6: العصائر والمشروبات -->
+  <section class="menu-section bg-sec-drinks" id="drinks">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>قسم العصائر والمشروبات</h2>
+        <p>عصائر طبيعية مثلجة وأكواب وعلب وجوالين كركديه وتوت بري</p>
+      </div>
+
+      <div class="items-grid">
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=500&q=80" alt="أكواب توت بري / توت / كركديه">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">أكواب (توت بري - توت - كركديه)</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">كبير: 7 ر.ي</span>
+                <span class="price-sub">صغير: 5 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">كوب عصير منعش وبارد محضر بعناية بعد كل وجبة.</p>
+            <div class="card-footer">
+              <button class="btn-add" onclick="addItem('كوب عصير كبير', 7)">+ إضافة كبير</button>
+              <button class="btn-add" onclick="addItem('كوب عصير صغير', 5)">+ إضافة صغير</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=500&q=80" alt="علب توت بري / توت / كركديه">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">علب (توت بري - توت - كركديه)</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">كبير: 7 ر.ي</span>
+                <span class="price-sub">صغير: 4 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">علب محكمة ومثلجة للطلبات الخارجية والسفري.</p>
+            <div class="card-footer">
+              <button class="btn-add" onclick="addItem('علبة عصير كبير', 7)">+ إضافة كبير</button>
+              <button class="btn-add" onclick="addItem('علبة عصير صغير', 4)">+ إضافة صغير</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=500&q=80" alt="جالون توت بري / توت / كركديه">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">جالون (توت بري - توت - كركديه)</span>
+              <div class="prices-badge-group">
+                <span class="price-tag">كبير: 20 ر.ي</span>
+                <span class="price-sub">صغير: 15 ر.ي</span>
+              </div>
+            </div>
+            <p class="item-desc">جالون عائلي منعش يكفي كل الجلسات والجمعات.</p>
+            <div class="card-footer">
+              <button class="btn-add" onclick="addItem('جالون عصير كبير', 20)">+ إضافة كبير</button>
+              <button class="btn-add" onclick="addItem('جالون عصير صغير', 15)">+ إضافة صغير</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=500&q=80" alt="مشروبات غازية">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">مشروبات غازية</span>
+              <span class="price-tag">2 ر.ي</span>
+            </div>
+            <p class="item-desc">تشكيلة المشروبات الغازية المتنوعة والباردة.</p>
+            <div class="card-footer">
+              <button class="btn-add" onclick="addItem('مشروب غازي', 2)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=500&q=80" alt="عصير ربيع">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">عصير ربيع</span>
+              <span class="price-tag">2 ر.ي</span>
+            </div>
+            <p class="item-desc">عصير ربيع بارد بنكهات متعددة ومنعشة.</p>
+            <div class="card-footer">
+              <button class="btn-add" onclick="addItem('عصير ربيع', 2)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=500&q=80" alt="ماء شرب">
+          </div>
+          <div class="card-content">
+            <div class="card-top">
+              <span class="item-title">ماء صحي</span>
+              <span class="price-tag">0.05 ر.ي</span>
+            </div>
+            <p class="item-desc">مياه نقية وصحية معبأة وباردة.</p>
+            <div class="card-footer">
+              <button class="btn-add" onclick="addItem('ماء صحي', 0.05)">+ إضافة</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- بيانات الموقع والتواصل -->
+  <footer class="footer-bar" id="contact">
+    <div class="info-card">
+      <h2 style="color: var(--secondary); font-size: 2.2rem; font-weight: 900; margin-bottom: 0.5rem;">
+        للطلب والتوصيل السريع 🛵
+      </h2>
+      <p style="color: var(--text-muted); font-size: 1.1rem;">اتصل بنا لنصلك بأشهى وجبات شاورمايشن الساخنة فوراً</p>
+
+      <a href="tel:0500953327" class="phone-number">📞 0500953327</a>
+
+      <div class="location-text">
+        📍 حلي - المثلث أمام مستوصف العلوي الطبي
+      </div>
+
+      <a href="https://wa.me/966500953327" target="_blank" class="btn-glow" style="display: inline-block; margin-top: 1rem;">
+        اطلب الآن عبر واتساب 💬
+      </a>
+    </div>
+    <p style="margin-top: 2rem; color: #777; font-size: 0.85rem;">
+      جميع الحقوق محفوظة لمطعم شاورمايشن © 2026
+    </p>
+  </footer>
+
+  <!-- السلة العائمة المضيئة -->
+  <div class="cart-float" onclick="alert('لديك ' + totalItems + ' عناصر بإجمالي: ' + totalPrice.toFixed(2) + ' ر.ي.')">
+    🛒 الطلبات: <span id="cartCount">0</span> | الإجمالي: <span id="cartSum">0</span> ر.ي
+  </div>
+
+  <script>
+    let totalItems = 0;
+    let totalPrice = 0;
+
+    function addItem(name, price) {
+      totalItems++;
+      totalPrice += price;
+      document.getElementById('cartCount').innerText = totalItems;
+      document.getElementById('cartSum').innerText = totalPrice.toFixed(2);
+    }
+  </script>
+</body>
+</html>
