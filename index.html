@@ -387,6 +387,11 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    .cart-float:hover {
+      transform: scale(1.05);
     }
 
     /* خلفيات البارالاكس */
@@ -414,6 +419,12 @@
       .nav-links { display: none; }
       .hero-content h1 { font-size: 2.2rem; }
       .phone-number { font-size: 1.7rem; }
+      .cart-float {
+        bottom: 15px;
+        left: 15px;
+        padding: 0.75rem 1.2rem;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -471,7 +482,8 @@
             <p class="item-desc">شاورما مقطعة مع بطاطس ومخلل وثومية وصوصات متنوعة.</p>
             <div class="card-footer">
               <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('صحن عربي كبير', 18)">+ إضافة</button>
+              <button class="btn-add" onclick="addItem('صحن عربي كبير (صافي)', 18)">+ صافي</button>
+              <button class="btn-add" onclick="addItem('صحن عربي كبير (مع الجبن)', 20)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -491,7 +503,8 @@
             <p class="item-desc">كمية وسط مثالية من الشاورما المقطعة مع خبز الصاج والمقبلات.</p>
             <div class="card-footer">
               <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('صحن عربي وسط', 16)">+ إضافة</button>
+              <button class="btn-add" onclick="addItem('صحن عربي وسط (صافي)', 16)">+ صافي</button>
+              <button class="btn-add" onclick="addItem('صحن عربي وسط (مع الجبن)', 18)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -511,7 +524,8 @@
             <p class="item-desc">صحن شاورما فردي سريع وغني بالنكهات والصلصة الخاصة.</p>
             <div class="card-footer">
               <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('صحن عربي صغير', 13)">+ إضافة</button>
+              <button class="btn-add" onclick="addItem('صحن عربي صغير (صافي)', 13)">+ صافي</button>
+              <button class="btn-add" onclick="addItem('صحن عربي صغير (مع الجبن)', 15)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -531,7 +545,8 @@
             <p class="item-desc">شاورما محضرة على الطريقة الإيطالية مع الصوصات والخلطة المخبوزة.</p>
             <div class="card-footer">
               <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('باشكا إيطالي', 18)">+ إضافة</button>
+              <button class="btn-add" onclick="addItem('باشكا إيطالي (صافي)', 18)">+ صافي</button>
+              <button class="btn-add" onclick="addItem('باشكا إيطالي (مع الجبن)', 20)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -551,7 +566,8 @@
             <p class="item-desc">طبقات خبز توست مقرمش محشو بصدور الدجاج الزنجر والصلصة.</p>
             <div class="card-footer">
               <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('كلوب زنجر', 18)">+ إضافة</button>
+              <button class="btn-add" onclick="addItem('كلوب زنجر (صافي)', 18)">+ صافي</button>
+              <button class="btn-add" onclick="addItem('كلوب زنجر (مع الجبن)', 20)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -571,7 +587,8 @@
             <p class="item-desc">كلوب ساندوتش محمص ومحشو بشرائح الشاورما والمايونيز والجبنة.</p>
             <div class="card-footer">
               <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('كلوب شاورما', 18)">+ إضافة</button>
+              <button class="btn-add" onclick="addItem('كلوب شاورما (صافي)', 18)">+ صافي</button>
+              <button class="btn-add" onclick="addItem('كلوب شاورما (مع الجبن)', 20)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -603,8 +620,8 @@
             </div>
             <p class="item-desc">ساندوتش صاروخ كبير ملفوف بعناية ومحمص ومتبل بالثومية اللذيذة.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('شاورما صاروخ', 8)">+ إضافة</button>
+              <button class="btn-add" onclick="addItem('شاورما صاروخ (صافي)', 8)">+ صافي</button>
+              <button class="btn-add" onclick="addItem('شاورما صاروخ (مع الجبن)', 9)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -623,8 +640,8 @@
             </div>
             <p class="item-desc">لفة شاورما كلاسيكية بالحجم المناسب والخفيف.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('شاورما وسط', 5)">+ إضافة</button>
+              <button class="btn-add" onclick="addItem('شاورما وسط (صافي)', 5)">+ صافي</button>
+              <button class="btn-add" onclick="addItem('شاورما وسط (مع الجبن)', 6)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -643,8 +660,8 @@
             </div>
             <p class="item-desc">الساندوتش الخاص بالمطعم بخلطة شاورمايشن الحصرية.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('ساندوتش شاورمايشن', 10)">+ إضافة</button>
+              <button class="btn-add" onclick="addItem('ساندوتش شاورمايشن (صافي)', 10)">+ صافي</button>
+              <button class="btn-add" onclick="addItem('ساندوتش شاورمايشن (مع الجبن)', 11)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -663,8 +680,8 @@
             </div>
             <p class="item-desc">حجم جامبو مشبع مليء بقطع الدجاج المتبلة والصوص.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('شاورما جامبو', 9)">+ إضافة</button>
+              <button class="btn-add" onclick="addItem('شاورما جامبو (صافي)', 9)">+ صافي</button>
+              <button class="btn-add" onclick="addItem('شاورما جامبو (مع الجبن)', 10)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -683,8 +700,8 @@
             </div>
             <p class="item-desc">شاورما داخل شرائح توست محمص وذهبي.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('توست شاورما', 8)">+ إضافة</button>
+              <button class="btn-add" onclick="addItem('توست شاورما (صافي)', 8)">+ صافي</button>
+              <button class="btn-add" onclick="addItem('توست شاورما (مع الجبن)', 9)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -703,8 +720,8 @@
             </div>
             <p class="item-desc">خبز برجر طازج محشو بشاورما الدجاج والصوص والمايونيز.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('برجر شاورما', 8)">+ إضافة</button>
+              <button class="btn-add" onclick="addItem('برجر شاورما (صافي)', 8)">+ صافي</button>
+              <button class="btn-add" onclick="addItem('برجر شاورما (مع الجبن)', 9)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -733,7 +750,6 @@
             </div>
             <p class="item-desc">قطعة دجاج متبلة ومحضرة حسب اختيارك مع الخس والصلصة.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('برجر دجاج', 10)">+ إضافة</button>
             </div>
           </div>
@@ -750,7 +766,6 @@
             </div>
             <p class="item-desc">شريحتين دجاج مشوي أو مقلي مع الجبن الذائب والخس.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('برجر دبل دجاج', 15)">+ إضافة</button>
             </div>
           </div>
@@ -767,7 +782,6 @@
             </div>
             <p class="item-desc">دجاج زنجر كريسبي حار مع صوص المايونيز والجبنة.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('برجر زنجر', 9)">+ إضافة</button>
             </div>
           </div>
@@ -784,7 +798,6 @@
             </div>
             <p class="item-desc">شريحتين من الزنجر المقرمش الحار الحجم المضاعف.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('برجر زنجر دبل', 15)">+ إضافة</button>
             </div>
           </div>
@@ -801,7 +814,6 @@
             </div>
             <p class="item-desc">قطعة زنجر كبيرة ومقرمشة داخل خبز برجر كبير.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('جانبو زنجر', 11)">+ إضافة</button>
             </div>
           </div>
@@ -818,7 +830,6 @@
             </div>
             <p class="item-desc">دجاج برجر مشوي أو مقلي محمص بشرائح التوست الذهبي.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('توست دجاج برجر', 9)">+ إضافة</button>
             </div>
           </div>
@@ -835,7 +846,6 @@
             </div>
             <p class="item-desc">برجر دجاج بحجم جامبو مع الصوصات والجبن والخضار الطازج.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('جانبو دجاج برجر', 11)">+ إضافة</button>
             </div>
           </div>
@@ -865,7 +875,6 @@
             </div>
             <p class="item-desc">بطاطس مقلية مغطاة بقطع الدجاج والجبنة والصلصات الحارة.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('تشيكن فرايز صغير', 11)">+ إضافة</button>
             </div>
           </div>
@@ -882,7 +891,6 @@
             </div>
             <p class="item-desc">صحن تشيكن فرايز كبير مشبع بالدجاج المقرمش والجبن الذائب.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('تشيكن فرايز كبير', 16)">+ إضافة</button>
             </div>
           </div>
@@ -899,7 +907,6 @@
             </div>
             <p class="item-desc">ساندوتش زنجر مقرمش يقدم مع البطاطس المقلية والصلصة ومشروب.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('وجبة زنجر', 16)">+ إضافة</button>
             </div>
           </div>
@@ -916,7 +923,6 @@
             </div>
             <p class="item-desc">وجبة برجر دجاج متكاملة مع أصابع البطاطس والصلصة اللذيذة.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('وجبة برجر دجاج', 15)">+ إضافة</button>
             </div>
           </div>
@@ -933,7 +939,6 @@
             </div>
             <p class="item-desc">وجبة ساندوتش توست دجاج محمص مع بطاطس وصوصات منعشة.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('وجبة توست دجاج', 14)">+ إضافة</button>
             </div>
           </div>
@@ -963,7 +968,6 @@
             </div>
             <p class="item-desc">لفة تورتيلا خفيفة محشوة ببرجر الدجاج والصوص.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('تورتيلا دجاج صغير', 8)">+ إضافة</button>
             </div>
           </div>
@@ -980,7 +984,6 @@
             </div>
             <p class="item-desc">تورتيلا كبيرة الحجم غنية بشرائح الدجاج والجبن السائل.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('تورتيلا دجاج كبير', 12)">+ إضافة</button>
             </div>
           </div>
@@ -997,7 +1000,6 @@
             </div>
             <p class="item-desc">قطع دجاج زنجر مقرمشة حارة ملفوفة في خبز تورتيلا محمص.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('تورتيلا زنجر كبير', 12)">+ إضافة</button>
             </div>
           </div>
@@ -1014,8 +1016,7 @@
             </div>
             <p class="item-desc">لفة تورتيلا زنجر فردية مقرمشة ولذيذة.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('تورتيلا زنجر صغير', 9)">+ إضافة</button>
+              <button class="btn-add" onclick="addItem('تورتيلا زنجر برجر صغير', 9)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -1031,7 +1032,6 @@
             </div>
             <p class="item-desc">أصابع مسحب دجاج كريسبي مع صوص الثومية والبطاطس المقرمشة.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('مسحب دجاج كبير', 11)">+ إضافة</button>
             </div>
           </div>
@@ -1048,7 +1048,6 @@
             </div>
             <p class="item-desc">ساندوتش مسحب دجاج خفيف بنكهة شهية.</p>
             <div class="card-footer">
-              <span style="font-size:0.8rem; color:#f77f00;">+2 ر.ي دبل جبن</span>
               <button class="btn-add" onclick="addItem('مسحب دجاج صغير', 8)">+ إضافة</button>
             </div>
           </div>
@@ -1068,7 +1067,8 @@
             </div>
             <p class="item-desc">أصابع بطاطس مقلية ومقرمشة ومتبلة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('بطاطس صغير', 3)">+ إضافة</button>
+              <button class="btn-add" onclick="addItem('صحن بطاطس صغير (صافي)', 3)">+ صافي</button>
+              <button class="btn-add" onclick="addItem('صحن بطاطس صغير (بالجبن)', 6)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -1087,7 +1087,8 @@
             </div>
             <p class="item-desc">صحن بطاطس حجم عائلي مقرمش مع خيار الجبنة الذائبة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('بطاطس كبير', 5)">+ إضافة</button>
+              <button class="btn-add" onclick="addItem('صحن بطاطس كبير (صافي)', 5)">+ صافي</button>
+              <button class="btn-add" onclick="addItem('صحن بطاطس كبير (بالجبن)', 8)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -1118,8 +1119,8 @@
             </div>
             <p class="item-desc">كوب عصير منعش وبارد محضر بعناية بعد كل وجبة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('كوب عصير كبير', 7)">+ إضافة كبير</button>
-              <button class="btn-add" onclick="addItem('كوب عصير صغير', 5)">+ إضافة صغير</button>
+              <button class="btn-add" onclick="addItem('كوب عصير كبير', 7)">+ كبير</button>
+              <button class="btn-add" onclick="addItem('كوب عصير صغير', 5)">+ صغير</button>
             </div>
           </div>
         </div>
@@ -1138,8 +1139,8 @@
             </div>
             <p class="item-desc">علب محكمة ومثلجة للطلبات الخارجية والسفري.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('علبة عصير كبير', 7)">+ إضافة كبير</button>
-              <button class="btn-add" onclick="addItem('علبة عصير صغير', 4)">+ إضافة صغير</button>
+              <button class="btn-add" onclick="addItem('علبة عصير كبير', 7)">+ كبير</button>
+              <button class="btn-add" onclick="addItem('علبة عصير صغير', 4)">+ صغير</button>
             </div>
           </div>
         </div>
@@ -1158,8 +1159,8 @@
             </div>
             <p class="item-desc">جالون عائلي منعش يكفي كل الجلسات والجمعات.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('جالون عصير كبير', 20)">+ إضافة كبير</button>
-              <button class="btn-add" onclick="addItem('جالون عصير صغير', 15)">+ إضافة صغير</button>
+              <button class="btn-add" onclick="addItem('جالون عصير كبير', 20)">+ كبير</button>
+              <button class="btn-add" onclick="addItem('جالون عصير صغير', 15)">+ صغير</button>
             </div>
           </div>
         </div>
@@ -1198,16 +1199,16 @@
 
         <div class="card">
           <div class="card-img-wrapper">
-            <img src="https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=500&q=80" alt="ماء شرب">
+            <img src="https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=500&q=80" alt="ماء صحي">
           </div>
           <div class="card-content">
             <div class="card-top">
               <span class="item-title">ماء صحي</span>
-              <span class="price-tag">0.05 ر.ي</span>
+              <span class="price-tag">0.50 ر.ي</span>
             </div>
             <p class="item-desc">مياه نقية وصحية معبأة وباردة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('ماء صحي', 0.05)">+ إضافة</button>
+              <button class="btn-add" onclick="addItem('ماء صحي', 0.50)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -1221,7 +1222,7 @@
       <h2 style="color: var(--secondary); font-size: 2.2rem; font-weight: 900; margin-bottom: 0.5rem;">
         للطلب والتوصيل السريع 🛵
       </h2>
-      <p style="color: var(--text-muted); font-size: 1.1rem;">اتصل بنا لنصلك بأشهى وجبات شاورمايشن الساخنة فوراً</p>
+      <p style="color: var(--text-muted); font-size: 1.1rem;">حدد وجباتك المفضلة واضغط على زر الطلب لنجهزها لك فوراً</p>
 
       <a href="tel:0500953327" class="phone-number">📞 0500953327</a>
 
@@ -1229,29 +1230,78 @@
         📍 حلي - المثلث أمام مستوصف العلوي الطبي
       </div>
 
-      <a href="https://wa.me/966500953327" target="_blank" class="btn-glow" style="display: inline-block; margin-top: 1rem;">
-        اطلب الآن عبر واتساب 💬
-      </a>
+      <!-- زر إتمام الطلب الرئيسي -->
+      <button onclick="sendOrderToWhatsApp()" class="btn-glow" style="display: inline-block; margin-top: 1rem; font-size: 1.1rem;">
+        إتمام الطلب عبر واتساب 💬
+      </button>
     </div>
     <p style="margin-top: 2rem; color: #777; font-size: 0.85rem;">
       جميع الحقوق محفوظة لمطعم شاورمايشن © 2026
     </p>
   </footer>
 
-  <!-- السلة العائمة المضيئة -->
-  <div class="cart-float" onclick="alert('لديك ' + totalItems + ' عناصر بإجمالي: ' + totalPrice.toFixed(2) + ' ر.ي.')">
-    🛒 الطلبات: <span id="cartCount">0</span> | الإجمالي: <span id="cartSum">0</span> ر.ي
+  <!-- السلة العائمة المضيئة (تأخذك للواتساب مباشرة أيضاً) -->
+  <div class="cart-float" onclick="sendOrderToWhatsApp()" title="اضغط لإتمام الطلب وإرساله إلى الواتساب">
+    🛒 الطلبات: <span id="cartCount">0</span> | الإجمالي: <span id="cartSum">0.00</span> ر.ي (إتمام الطلب)
   </div>
 
   <script>
-    let totalItems = 0;
-    let totalPrice = 0;
+    // تخزين بيانات السلة
+    let cart = {};
+    const restaurantPhone = "966500953327"; // رقم واتساب المطعم مع الرمز الدولي
 
+    // إضافة عنصر للسلة
     function addItem(name, price) {
-      totalItems++;
-      totalPrice += price;
-      document.getElementById('cartCount').innerText = totalItems;
-      document.getElementById('cartSum').innerText = totalPrice.toFixed(2);
+      if (cart[name]) {
+        cart[name].qty += 1;
+      } else {
+        cart[name] = { price: price, qty: 1 };
+      }
+      updateCartUI();
+    }
+
+    // تحديث عدادات السلة
+    function updateCartUI() {
+      let totalQty = 0;
+      let totalSum = 0;
+
+      for (let item in cart) {
+        totalQty += cart[item].qty;
+        totalSum += cart[item].price * cart[item].qty;
+      }
+
+      document.getElementById('cartCount').innerText = totalQty;
+      document.getElementById('cartSum').innerText = totalSum.toFixed(2);
+    }
+
+    // توليد رسالة الواتساب والانتقال للرقم
+    function sendOrderToWhatsApp() {
+      let itemsKeys = Object.keys(cart);
+
+      if (itemsKeys.length === 0) {
+        alert("سلة الطلبات فارغة! الرجاء اختيار الوجبات أولاً بالضغط على زر (+).");
+        return;
+      }
+
+      let totalSum = 0;
+      let orderText = "السلام عليكم ورحمة الله،\nأرغب في تقديم طلب جديد من مطعم *شاورمايشن*:\n\n";
+      orderText += "📋 *تفاصيل الطلب:*\n";
+
+      itemsKeys.forEach((name, index) => {
+        let item = cart[name];
+        let itemTotal = item.price * item.qty;
+        totalSum += itemTotal;
+        orderText += `${index + 1}. ${name} × ${item.qty} = ${itemTotal.toFixed(2)} ر.ي\n`;
+      });
+
+      orderText += "\n----------------------";
+      orderText += `\n💰 *الإجمالي الكلي:* ${totalSum.toFixed(2)} ر.ي`;
+      orderText += "\n📍 الموقع / العنوان: (يرجى تزويدنا بالموقع للتوصيل)";
+
+      // فتح محادثة الواتساب
+      const encodedMsg = encodeURIComponent(orderText);
+      const whatsappUrl = `https://wa.me/${restaurantPhone}?text=${encodedMsg}`;
+      window.open(whatsappUrl, '_blank');
     }
   </script>
 </body>
