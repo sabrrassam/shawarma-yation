@@ -414,6 +414,205 @@
       background-image: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)), url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1920&q=80');
     }
 
+    /* تنسيقات نافذة التخصيص والمراجعة (Modal) */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .modal-box {
+      background: #1c110e;
+      color: var(--text-light);
+      width: 100%;
+      max-width: 530px;
+      border-radius: 18px;
+      padding: 1.6rem;
+      border: 1px solid rgba(247, 127, 0, 0.4);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), var(--glow-red);
+      animation: modalSlide 0.3s ease;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(247, 127, 0, 0.25);
+      padding-bottom: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .modal-header h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--secondary);
+      text-shadow: var(--glow-orange);
+    }
+
+    .close-btn {
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .option-group-title {
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: var(--accent);
+      margin: 0.8rem 0 0.4rem;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+      padding-bottom: 0.2rem;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(36, 21, 18, 0.85);
+      border: 1px solid rgba(247, 127, 0, 0.2);
+      padding: 0.45rem 0.6rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-light);
+      transition: all 0.2s;
+    }
+
+    .option-item:hover {
+      background: rgba(214, 40, 40, 0.25);
+      border-color: var(--secondary);
+    }
+
+    .option-item input {
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    /* عداد الكمية التفاعلي المضاف */
+    .qty-counter-box {
+      background: rgba(36, 21, 18, 0.95);
+      border: 1.5px solid var(--secondary);
+      border-radius: 12px;
+      padding: 0.8rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1rem 0 0.6rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-qty-step {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 1;
+      transition: transform 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-qty-step:hover {
+      transform: scale(1.1);
+    }
+
+    .qty-number {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--accent);
+      min-width: 25px;
+      text-align: center;
+    }
+
+    .qty-subtotal-price {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--accent);
+      text-shadow: var(--glow-orange);
+    }
+
+    .notes-textarea {
+      width: 100%;
+      background: #140b09;
+      color: #fff;
+      border: 1px solid rgba(247, 127, 0, 0.3);
+      border-radius: 8px;
+      padding: 0.6rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      margin-top: 0.4rem;
+      resize: vertical;
+      outline: none;
+    }
+
+    .notes-textarea:focus {
+      border-color: var(--secondary);
+      box-shadow: var(--glow-orange);
+    }
+
+    .btn-modal-action {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      border: none;
+      padding: 0.85rem;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(214, 40, 40, 0.5);
+      margin-top: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-modal-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(247, 127, 0, 0.8);
+    }
+
+    .cart-item-preview {
+      background: rgba(18, 11, 9, 0.95);
+      border: 1px solid rgba(247, 127, 0, 0.3);
+      border-radius: 10px;
+      padding: 0.8rem;
+      margin-bottom: 0.7rem;
+    }
+
+    @keyframes modalSlide {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 768px) {
       nav { padding: 0.8rem 1.2rem; }
       .nav-links { display: none; }
@@ -425,6 +624,7 @@
         padding: 0.75rem 1.2rem;
         font-size: 0.9rem;
       }
+      .options-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -482,8 +682,8 @@
             <p class="item-desc">شاورما مقطعة مع بطاطس ومخلل وثومية وصوصات متنوعة.</p>
             <div class="card-footer">
               <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('صحن عربي كبير (صافي)', 18)">+ صافي</button>
-              <button class="btn-add" onclick="addItem('صحن عربي كبير (مع الجبن)', 20)">+ بالجبن</button>
+              <button class="btn-add" onclick="openCustomizeModal('صحن عربي كبير (صافي)', 18)">+ صافي</button>
+              <button class="btn-add" onclick="openCustomizeModal('صحن عربي كبير (مع الجبن)', 20)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -503,8 +703,8 @@
             <p class="item-desc">كمية وسط مثالية من الشاورما المقطعة مع خبز الصاج والمقبلات.</p>
             <div class="card-footer">
               <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('صحن عربي وسط (صافي)', 16)">+ صافي</button>
-              <button class="btn-add" onclick="addItem('صحن عربي وسط (مع الجبن)', 18)">+ بالجبن</button>
+              <button class="btn-add" onclick="openCustomizeModal('صحن عربي وسط (صافي)', 16)">+ صافي</button>
+              <button class="btn-add" onclick="openCustomizeModal('صحن عربي وسط (مع الجبن)', 18)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -524,8 +724,8 @@
             <p class="item-desc">صحن شاورما فردي سريع وغني بالنكهات والصلصة الخاصة.</p>
             <div class="card-footer">
               <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('صحن عربي صغير (صافي)', 13)">+ صافي</button>
-              <button class="btn-add" onclick="addItem('صحن عربي صغير (مع الجبن)', 15)">+ بالجبن</button>
+              <button class="btn-add" onclick="openCustomizeModal('صحن عربي صغير (صافي)', 13)">+ صافي</button>
+              <button class="btn-add" onclick="openCustomizeModal('صحن عربي صغير (مع الجبن)', 15)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -545,8 +745,8 @@
             <p class="item-desc">شاورما محضرة على الطريقة الإيطالية مع الصوصات والخلطة المخبوزة.</p>
             <div class="card-footer">
               <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('باشكا إيطالي (صافي)', 18)">+ صافي</button>
-              <button class="btn-add" onclick="addItem('باشكا إيطالي (مع الجبن)', 20)">+ بالجبن</button>
+              <button class="btn-add" onclick="openCustomizeModal('باشكا إيطالي (صافي)', 18)">+ صافي</button>
+              <button class="btn-add" onclick="openCustomizeModal('باشكا إيطالي (مع الجبن)', 20)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -566,8 +766,8 @@
             <p class="item-desc">طبقات خبز توست مقرمش محشو بصدور الدجاج الزنجر والصلصة.</p>
             <div class="card-footer">
               <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('كلوب زنجر (صافي)', 18)">+ صافي</button>
-              <button class="btn-add" onclick="addItem('كلوب زنجر (مع الجبن)', 20)">+ بالجبن</button>
+              <button class="btn-add" onclick="openCustomizeModal('كلوب زنجر (صافي)', 18)">+ صافي</button>
+              <button class="btn-add" onclick="openCustomizeModal('كلوب زنجر (مع الجبن)', 20)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -587,8 +787,8 @@
             <p class="item-desc">كلوب ساندوتش محمص ومحشو بشرائح الشاورما والمايونيز والجبنة.</p>
             <div class="card-footer">
               <span style="font-size:0.8rem; color:#f77f00;">+4 ر.ي دبل جبن</span>
-              <button class="btn-add" onclick="addItem('كلوب شاورما (صافي)', 18)">+ صافي</button>
-              <button class="btn-add" onclick="addItem('كلوب شاورما (مع الجبن)', 20)">+ بالجبن</button>
+              <button class="btn-add" onclick="openCustomizeModal('كلوب شاورما (صافي)', 18)">+ صافي</button>
+              <button class="btn-add" onclick="openCustomizeModal('كلوب شاورما (مع الجبن)', 20)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -620,8 +820,8 @@
             </div>
             <p class="item-desc">ساندوتش صاروخ كبير ملفوف بعناية ومحمص ومتبل بالثومية اللذيذة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('شاورما صاروخ (صافي)', 8)">+ صافي</button>
-              <button class="btn-add" onclick="addItem('شاورما صاروخ (مع الجبن)', 9)">+ بالجبن</button>
+              <button class="btn-add" onclick="openCustomizeModal('شاورما صاروخ (صافي)', 8)">+ صافي</button>
+              <button class="btn-add" onclick="openCustomizeModal('شاورما صاروخ (مع الجبن)', 9)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -640,8 +840,8 @@
             </div>
             <p class="item-desc">لفة شاورما كلاسيكية بالحجم المناسب والخفيف.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('شاورما وسط (صافي)', 5)">+ صافي</button>
-              <button class="btn-add" onclick="addItem('شاورما وسط (مع الجبن)', 6)">+ بالجبن</button>
+              <button class="btn-add" onclick="openCustomizeModal('شاورما وسط (صافي)', 5)">+ صافي</button>
+              <button class="btn-add" onclick="openCustomizeModal('شاورما وسط (مع الجبن)', 6)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -660,8 +860,8 @@
             </div>
             <p class="item-desc">الساندوتش الخاص بالمطعم بخلطة شاورمايشن الحصرية.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('ساندوتش شاورمايشن (صافي)', 10)">+ صافي</button>
-              <button class="btn-add" onclick="addItem('ساندوتش شاورمايشن (مع الجبن)', 11)">+ بالجبن</button>
+              <button class="btn-add" onclick="openCustomizeModal('ساندوتش شاورمايشن (صافي)', 10)">+ صافي</button>
+              <button class="btn-add" onclick="openCustomizeModal('ساندوتش شاورمايشن (مع الجبن)', 11)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -680,8 +880,8 @@
             </div>
             <p class="item-desc">حجم جامبو مشبع مليء بقطع الدجاج المتبلة والصوص.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('شاورما جامبو (صافي)', 9)">+ صافي</button>
-              <button class="btn-add" onclick="addItem('شاورما جامبو (مع الجبن)', 10)">+ بالجبن</button>
+              <button class="btn-add" onclick="openCustomizeModal('شاورما جامبو (صافي)', 9)">+ صافي</button>
+              <button class="btn-add" onclick="openCustomizeModal('شاورما جامبو (مع الجبن)', 10)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -700,8 +900,8 @@
             </div>
             <p class="item-desc">شاورما داخل شرائح توست محمص وذهبي.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('توست شاورما (صافي)', 8)">+ صافي</button>
-              <button class="btn-add" onclick="addItem('توست شاورما (مع الجبن)', 9)">+ بالجبن</button>
+              <button class="btn-add" onclick="openCustomizeModal('توست شاورما (صافي)', 8)">+ صافي</button>
+              <button class="btn-add" onclick="openCustomizeModal('توست شاورما (مع الجبن)', 9)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -720,8 +920,8 @@
             </div>
             <p class="item-desc">خبز برجر طازج محشو بشاورما الدجاج والصوص والمايونيز.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('برجر شاورما (صافي)', 8)">+ صافي</button>
-              <button class="btn-add" onclick="addItem('برجر شاورما (مع الجبن)', 9)">+ بالجبن</button>
+              <button class="btn-add" onclick="openCustomizeModal('برجر شاورما (صافي)', 8)">+ صافي</button>
+              <button class="btn-add" onclick="openCustomizeModal('برجر شاورما (مع الجبن)', 9)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -750,7 +950,7 @@
             </div>
             <p class="item-desc">قطعة دجاج متبلة ومحضرة حسب اختيارك مع الخس والصلصة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('برجر دجاج', 10)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('برجر دجاج', 10)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -766,7 +966,7 @@
             </div>
             <p class="item-desc">شريحتين دجاج مشوي أو مقلي مع الجبن الذائب والخس.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('برجر دبل دجاج', 15)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('برجر دبل دجاج', 15)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -782,7 +982,7 @@
             </div>
             <p class="item-desc">دجاج زنجر كريسبي حار مع صوص المايونيز والجبنة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('برجر زنجر', 9)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('برجر زنجر', 9)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -798,7 +998,7 @@
             </div>
             <p class="item-desc">شريحتين من الزنجر المقرمش الحار الحجم المضاعف.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('برجر زنجر دبل', 15)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('برجر زنجر دبل', 15)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -814,7 +1014,7 @@
             </div>
             <p class="item-desc">قطعة زنجر كبيرة ومقرمشة داخل خبز برجر كبير.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('جانبو زنجر', 11)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('جانبو زنجر', 11)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -830,7 +1030,7 @@
             </div>
             <p class="item-desc">دجاج برجر مشوي أو مقلي محمص بشرائح التوست الذهبي.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('توست دجاج برجر', 9)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('توست دجاج برجر', 9)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -846,7 +1046,7 @@
             </div>
             <p class="item-desc">برجر دجاج بحجم جامبو مع الصوصات والجبن والخضار الطازج.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('جانبو دجاج برجر', 11)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('جانبو دجاج برجر', 11)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -875,7 +1075,7 @@
             </div>
             <p class="item-desc">بطاطس مقلية مغطاة بقطع الدجاج والجبنة والصلصات الحارة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('تشيكن فرايز صغير', 11)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('تشيكن فرايز صغير', 11)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -891,7 +1091,7 @@
             </div>
             <p class="item-desc">صحن تشيكن فرايز كبير مشبع بالدجاج المقرمش والجبن الذائب.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('تشيكن فرايز كبير', 16)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('تشيكن فرايز كبير', 16)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -907,7 +1107,7 @@
             </div>
             <p class="item-desc">ساندوتش زنجر مقرمش يقدم مع البطاطس المقلية والصلصة ومشروب.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('وجبة زنجر', 16)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('وجبة زنجر', 16)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -923,7 +1123,7 @@
             </div>
             <p class="item-desc">وجبة برجر دجاج متكاملة مع أصابع البطاطس والصلصة اللذيذة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('وجبة برجر دجاج', 15)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('وجبة برجر دجاج', 15)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -939,7 +1139,7 @@
             </div>
             <p class="item-desc">وجبة ساندوتش توست دجاج محمص مع بطاطس وصوصات منعشة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('وجبة توست دجاج', 14)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('وجبة توست دجاج', 14)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -968,7 +1168,7 @@
             </div>
             <p class="item-desc">لفة تورتيلا خفيفة محشوة ببرجر الدجاج والصوص.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('تورتيلا دجاج صغير', 8)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('تورتيلا دجاج صغير', 8)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -984,7 +1184,7 @@
             </div>
             <p class="item-desc">تورتيلا كبيرة الحجم غنية بشرائح الدجاج والجبن السائل.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('تورتيلا دجاج كبير', 12)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('تورتيلا دجاج كبير', 12)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -1000,7 +1200,7 @@
             </div>
             <p class="item-desc">قطع دجاج زنجر مقرمشة حارة ملفوفة في خبز تورتيلا محمص.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('تورتيلا زنجر كبير', 12)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('تورتيلا زنجر كبير', 12)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -1016,7 +1216,7 @@
             </div>
             <p class="item-desc">لفة تورتيلا زنجر فردية مقرمشة ولذيذة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('تورتيلا زنجر برجر صغير', 9)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('تورتيلا زنجر برجر صغير', 9)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -1032,7 +1232,7 @@
             </div>
             <p class="item-desc">أصابع مسحب دجاج كريسبي مع صوص الثومية والبطاطس المقرمشة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('مسحب دجاج كبير', 11)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('مسحب دجاج كبير', 11)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -1048,7 +1248,7 @@
             </div>
             <p class="item-desc">ساندوتش مسحب دجاج خفيف بنكهة شهية.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('مسحب دجاج صغير', 8)">+ إضافة</button>
+              <button class="btn-add" onclick="openCustomizeModal('مسحب دجاج صغير', 8)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -1067,8 +1267,8 @@
             </div>
             <p class="item-desc">أصابع بطاطس مقلية ومقرمشة ومتبلة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('صحن بطاطس صغير (صافي)', 3)">+ صافي</button>
-              <button class="btn-add" onclick="addItem('صحن بطاطس صغير (بالجبن)', 6)">+ بالجبن</button>
+              <button class="btn-add" onclick="openCustomizeModal('صحن بطاطس صغير (صافي)', 3)">+ صافي</button>
+              <button class="btn-add" onclick="openCustomizeModal('صحن بطاطس صغير (بالجبن)', 6)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -1087,8 +1287,8 @@
             </div>
             <p class="item-desc">صحن بطاطس حجم عائلي مقرمش مع خيار الجبنة الذائبة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('صحن بطاطس كبير (صافي)', 5)">+ صافي</button>
-              <button class="btn-add" onclick="addItem('صحن بطاطس كبير (بالجبن)', 8)">+ بالجبن</button>
+              <button class="btn-add" onclick="openCustomizeModal('صحن بطاطس كبير (صافي)', 5)">+ صافي</button>
+              <button class="btn-add" onclick="openCustomizeModal('صحن بطاطس كبير (بالجبن)', 8)">+ بالجبن</button>
             </div>
           </div>
         </div>
@@ -1119,8 +1319,8 @@
             </div>
             <p class="item-desc">كوب عصير منعش وبارد محضر بعناية بعد كل وجبة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('كوب عصير كبير', 7)">+ كبير</button>
-              <button class="btn-add" onclick="addItem('كوب عصير صغير', 5)">+ صغير</button>
+              <button class="btn-add" onclick="addDirectItem('كوب عصير كبير', 7)">+ كبير</button>
+              <button class="btn-add" onclick="addDirectItem('كوب عصير صغير', 5)">+ صغير</button>
             </div>
           </div>
         </div>
@@ -1139,8 +1339,8 @@
             </div>
             <p class="item-desc">علب محكمة ومثلجة للطلبات الخارجية والسفري.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('علبة عصير كبير', 7)">+ كبير</button>
-              <button class="btn-add" onclick="addItem('علبة عصير صغير', 4)">+ صغير</button>
+              <button class="btn-add" onclick="addDirectItem('علبة عصير كبير', 7)">+ كبير</button>
+              <button class="btn-add" onclick="addDirectItem('علبة عصير صغير', 4)">+ صغير</button>
             </div>
           </div>
         </div>
@@ -1159,8 +1359,8 @@
             </div>
             <p class="item-desc">جالون عائلي منعش يكفي كل الجلسات والجمعات.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('جالون عصير كبير', 20)">+ كبير</button>
-              <button class="btn-add" onclick="addItem('جالون عصير صغير', 15)">+ صغير</button>
+              <button class="btn-add" onclick="addDirectItem('جالون عصير كبير', 20)">+ كبير</button>
+              <button class="btn-add" onclick="addDirectItem('جالون عصير صغير', 15)">+ صغير</button>
             </div>
           </div>
         </div>
@@ -1176,7 +1376,7 @@
             </div>
             <p class="item-desc">تشكيلة المشروبات الغازية المتنوعة والباردة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('مشروب غازي', 2)">+ إضافة</button>
+              <button class="btn-add" onclick="addDirectItem('مشروب غازي', 2)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -1192,7 +1392,7 @@
             </div>
             <p class="item-desc">عصير ربيع بارد بنكهات متعددة ومنعشة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('عصير ربيع', 2)">+ إضافة</button>
+              <button class="btn-add" onclick="addDirectItem('عصير ربيع', 2)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -1208,7 +1408,7 @@
             </div>
             <p class="item-desc">مياه نقية وصحية معبأة وباردة.</p>
             <div class="card-footer">
-              <button class="btn-add" onclick="addItem('ماء صحي', 0.50)">+ إضافة</button>
+              <button class="btn-add" onclick="addDirectItem('ماء صحي', 0.50)">+ إضافة</button>
             </div>
           </div>
         </div>
@@ -1231,7 +1431,7 @@
       </div>
 
       <!-- زر إتمام الطلب الرئيسي -->
-      <button onclick="sendOrderToWhatsApp()" class="btn-glow" style="display: inline-block; margin-top: 1rem; font-size: 1.1rem;">
+      <button onclick="openCartReviewModal()" class="btn-glow" style="display: inline-block; margin-top: 1rem; font-size: 1.1rem;">
         إتمام الطلب عبر واتساب 💬
       </button>
     </div>
@@ -1240,69 +1440,337 @@
     </p>
   </footer>
 
-  <!-- السلة العائمة المضيئة (تأخذك للواتساب مباشرة أيضاً) -->
-  <div class="cart-float" onclick="sendOrderToWhatsApp()" title="اضغط لإتمام الطلب وإرساله إلى الواتساب">
+  <!-- السلة العائمة المضيئة -->
+  <div class="cart-float" onclick="openCartReviewModal()" title="اضغط لمراجعة السلة وإتمام الطلب عبر واتساب">
     🛒 الطلبات: <span id="cartCount">0</span> | الإجمالي: <span id="cartSum">0.00</span> ر.ي (إتمام الطلب)
   </div>
 
-  <script>
-    // تخزين بيانات السلة
-    let cart = {};
-    const restaurantPhone = "966500953327"; // رقم واتساب المطعم مع الرمز الدولي
+  <!-- 1. نافذة التخصيص التفصيلي للسندوتشات والوجبات -->
+  <div id="customizeModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="modalItemTitle">تخصيص الصنف 🥪</h3>
+        <span class="close-btn" onclick="closeCustomizeModal()">&times;</span>
+      </div>
 
-    // إضافة عنصر للسلة
-    function addItem(name, price) {
-      if (cart[name]) {
-        cart[name].qty += 1;
-      } else {
-        cart[name] = { price: price, qty: 1 };
-      }
+      <form id="customizeForm">
+        <!-- الحراق -->
+        <div class="option-group-title">🔥 مستوى الحرارة (الحراق):</div>
+        <div class="options-grid">
+          <label class="option-item"><input type="radio" name="opt_spicy" value="حراق 🔥"> حراق 🔥</label>
+          <label class="option-item"><input type="radio" name="opt_spicy" value="حراق خفيف"> حراق خفيف</label>
+          <label class="option-item"><input type="radio" name="opt_spicy" value="بدون حراق" checked> بدون حراق</label>
+        </div>
+
+        <!-- الشطة -->
+        <div class="option-group-title">🌶️ الشطة:</div>
+        <div class="options-grid">
+          <label class="option-item"><input type="radio" name="opt_hotSauce" value="شطة"> شطة</label>
+          <label class="option-item"><input type="radio" name="opt_hotSauce" value="شطة خفيف"> شطة خفيف</label>
+          <label class="option-item"><input type="radio" name="opt_hotSauce" value="بدون شطة" checked> بدون شطة</label>
+        </div>
+
+        <!-- الكتشب -->
+        <div class="option-group-title">🍅 الكتشب:</div>
+        <div class="options-grid">
+          <label class="option-item"><input type="radio" name="opt_ketchup" value="كتشب"> كتشب</label>
+          <label class="option-item"><input type="radio" name="opt_ketchup" value="كتشب خفيف"> كتشب خفيف</label>
+          <label class="option-item"><input type="radio" name="opt_ketchup" value="زيادة كتشب"> زيادة كتشب</label>
+          <label class="option-item"><input type="radio" name="opt_ketchup" value="بدون كتشب" checked> بدون كتشب</label>
+        </div>
+
+        <!-- الثوم -->
+        <div class="option-group-title">🧄 الثومية:</div>
+        <div class="options-grid">
+          <label class="option-item"><input type="radio" name="opt_garlic" value="ثوم عادي" checked> ثوم عادي</label>
+          <label class="option-item"><input type="radio" name="opt_garlic" value="ثوم خفيف"> ثوم خفيف</label>
+          <label class="option-item"><input type="radio" name="opt_garlic" value="زيادة ثوم 🧄"> زيادة ثوم</label>
+          <label class="option-item"><input type="radio" name="opt_garlic" value="بدون ثوم"> بدون ثوم</label>
+        </div>
+
+        <!-- الكوكتيل -->
+        <div class="option-group-title">🥣 صوص الكوكتيل:</div>
+        <div class="options-grid">
+          <label class="option-item"><input type="radio" name="opt_cocktail" value="مع كوكتيل"> كوكتيل</label>
+          <label class="option-item"><input type="radio" name="opt_cocktail" value="بدون كوكتيل" checked> بدون كوكتيل</label>
+        </div>
+
+        <!-- طحينة ومخلل -->
+        <div class="option-group-title">🥗 إضافات (طحينة / مخلل):</div>
+        <div class="options-grid">
+          <label class="option-item"><input type="checkbox" id="chk_tahina" value="طحينة"> طحينة</label>
+          <label class="option-item"><input type="checkbox" id="chk_pickles" value="مع المخلل 🥒" checked> مخلل 🥒</label>
+        </div>
+
+        <!-- الخس -->
+        <div class="option-group-title">🥬 الخس:</div>
+        <div class="options-grid">
+          <label class="option-item"><input type="radio" name="opt_lettuce" value="مع خس" checked> مع خس</label>
+          <label class="option-item"><input type="radio" name="opt_lettuce" value="بدون خس"> بدون خس</label>
+        </div>
+
+        <!-- البطاطس -->
+        <div class="option-group-title">🍟 البطاطس:</div>
+        <div class="options-grid">
+          <label class="option-item"><input type="radio" name="opt_fries" value="بطاطس عادي" checked> بطاطس عادي</label>
+          <label class="option-item"><input type="radio" name="opt_fries" value="بطاطس خفيف"> بطاطس خفيف</label>
+          <label class="option-item"><input type="radio" name="opt_fries" value="زيادة بطاطس"> زيادة بطاطس</label>
+          <label class="option-item"><input type="radio" name="opt_fries" value="بدون بطاطس"> بدون بطاطس</label>
+        </div>
+
+        <!-- تكوين الحشوة -->
+        <div class="option-group-title">🍗 تكوين السندوتش / الحشوة:</div>
+        <div class="options-grid">
+          <label class="option-item"><input type="radio" name="opt_filling" value="دجاج بطاطس" checked> دجاج بطاطس</label>
+          <label class="option-item"><input type="radio" name="opt_filling" value="دجاج فقط (صافي)"> دجاج فقط</label>
+          <label class="option-item"><input type="radio" name="opt_filling" value="بدون دجاج (خضار وبطاطس)"> بدون دجاج</label>
+        </div>
+
+        <!-- الصوصات -->
+        <div class="option-group-title">🍯 ميزان الصوصات العام:</div>
+        <div class="options-grid">
+          <label class="option-item"><input type="radio" name="opt_sauceLevel" value="صوصات عادية" checked> صوصات عادية</label>
+          <label class="option-item"><input type="radio" name="opt_sauceLevel" value="صوصات خفيف"> صوصات خفيف</label>
+          <label class="option-item"><input type="radio" name="opt_sauceLevel" value="زيادة صوصات"> زيادة صوصات</label>
+        </div>
+
+        <!-- عداد الكمية التفاعلي المضاف قبل الملاحظات -->
+        <div class="option-group-title">🔢 تحديد الكمية المطلوبة والحساب:</div>
+        <div class="qty-counter-box">
+          <div class="qty-controls">
+            <button type="button" class="btn-qty-step" onclick="changeCustomModalQty(-1)">−</button>
+            <span id="customModalQtyDisplay" class="qty-number">1</span>
+            <button type="button" class="btn-qty-step" onclick="changeCustomModalQty(1)">+</button>
+          </div>
+          <div>
+            <span style="font-size:0.85rem; color:var(--text-muted);">الإجمالي: </span>
+            <span id="customModalSubtotal" class="qty-subtotal-price">0.00 ر.ي</span>
+          </div>
+        </div>
+
+        <!-- ملاحظة خاصة -->
+        <div class="option-group-title">✍️ ملاحظات خاصة على هذا الصنف:</div>
+        <textarea id="itemCustomNote" class="notes-textarea" rows="2" placeholder="مثال: تحميص زيادة، خبز مقمر..."></textarea>
+
+        <button type="button" class="btn-modal-action" onclick="confirmItemCustomization()">
+          تأكيد وإضافة للسلة 🛒
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. نافذة مراجعة السلة والإرسال لواتساب -->
+  <div id="cartReviewModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>مراجعة تفاصيل الطلبات 📋</h3>
+        <span class="close-btn" onclick="closeCartReviewModal()">&times;</span>
+      </div>
+
+      <div id="cartItemsListContainer"></div>
+
+      <div style="margin-top: 1rem; border-top: 1px dashed rgba(247, 127, 0, 0.4); padding-top: 0.8rem; font-weight: 800; font-size: 1.2rem; color: var(--accent);">
+        المجموع الكلي: <span id="cartModalTotal">0.00</span> ر.ي
+      </div>
+
+      <div style="margin-top: 1rem;">
+        <label style="font-weight: 700; font-size: 0.9rem; color: var(--text-muted);">📍 عنوان التوصيل / اسم العميل:</label>
+        <textarea id="customerFinalAddress" class="notes-textarea" rows="2" placeholder="اكتب اسمك، والموقع أو الحي بالتفصيل..."></textarea>
+      </div>
+
+      <button type="button" class="btn-modal-action" onclick="sendFullOrderToWhatsApp()">
+        تأكيد وإرسال عبر واتساب 💬
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // مصفوفة السلة ورقم هاتف المطعم
+    let cart = [];
+    let currentCustomizingItem = null;
+    let currentCustomizingQty = 1; // متغير عداد الكمية
+    const restaurantPhone = "966500953327";
+
+    // فتح نافذة التخصيص عند اختيار السندوتش/الوجبة
+    function openCustomizeModal(name, price) {
+      currentCustomizingItem = { name: name, price: price };
+      currentCustomizingQty = 1; // إعادة الضبط لـ 1
+
+      document.getElementById('modalItemTitle').innerText = `تخصيص: ${name} (${price} ر.ي)`;
+      document.getElementById('customizeForm').reset();
+      document.getElementById('itemCustomNote').value = '';
+
+      updateCustomModalQtyDisplay();
+      document.getElementById('customizeModal').style.display = 'flex';
+    }
+
+    // زيادة وإنقاص العداد وتحديث السعر تلقائياً
+    function changeCustomModalQty(delta) {
+      currentCustomizingQty += delta;
+      if (currentCustomizingQty < 1) currentCustomizingQty = 1;
+      updateCustomModalQtyDisplay();
+    }
+
+    function updateCustomModalQtyDisplay() {
+      document.getElementById('customModalQtyDisplay').innerText = currentCustomizingQty;
+      const subtotal = currentCustomizingItem.price * currentCustomizingQty;
+      document.getElementById('customModalSubtotal').innerText = `${subtotal.toFixed(2)} ر.ي`;
+    }
+
+    function closeCustomizeModal() {
+      document.getElementById('customizeModal').style.display = 'none';
+    }
+
+    // تأكيد الخيارات المحددة وإضافتها إلى السلة مع الكمية
+    function confirmItemCustomization() {
+      if (!currentCustomizingItem) return;
+
+      const getRadioVal = (name) => {
+        const el = document.querySelector(`input[name="${name}"]:checked`);
+        return el ? el.value : '';
+      };
+
+      let options = [];
+      options.push(getRadioVal('opt_spicy'));
+      options.push(getRadioVal('opt_hotSauce'));
+      options.push(getRadioVal('opt_ketchup'));
+      options.push(getRadioVal('opt_garlic'));
+      options.push(getRadioVal('opt_cocktail'));
+
+      if (document.getElementById('chk_tahina').checked) options.push("طحينة");
+      if (document.getElementById('chk_pickles').checked) options.push("مع المخلل 🥒");
+
+      options.push(getRadioVal('opt_lettuce'));
+      options.push(getRadioVal('opt_fries'));
+      options.push(getRadioVal('opt_filling'));
+      options.push(getRadioVal('opt_sauceLevel'));
+
+      const note = document.getElementById('itemCustomNote').value.trim();
+
+      cart.push({
+        name: currentCustomizingItem.name,
+        price: currentCustomizingItem.price,
+        qty: currentCustomizingQty,
+        options: options,
+        customNote: note
+      });
+
+      updateCartUI();
+      closeCustomizeModal();
+    }
+
+    // إضافة الأصناف المباشرة كالعصائر والمشروبات
+    function addDirectItem(name, price) {
+      cart.push({
+        name: name,
+        price: price,
+        qty: 1,
+        options: ["بارد مثلج"],
+        customNote: ""
+      });
       updateCartUI();
     }
 
-    // تحديث عدادات السلة
+    // تحديث عدادات السلة العائمة
     function updateCartUI() {
-      let totalQty = 0;
-      let totalSum = 0;
-
-      for (let item in cart) {
-        totalQty += cart[item].qty;
-        totalSum += cart[item].price * cart[item].qty;
-      }
+      let totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
+      let totalSum = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
 
       document.getElementById('cartCount').innerText = totalQty;
       document.getElementById('cartSum').innerText = totalSum.toFixed(2);
     }
 
-    // توليد رسالة الواتساب والانتقال للرقم
-    function sendOrderToWhatsApp() {
-      let itemsKeys = Object.keys(cart);
-
-      if (itemsKeys.length === 0) {
-        alert("سلة الطلبات فارغة! الرجاء اختيار الوجبات أولاً بالضغط على زر (+).");
+    // فتح نافذة مراجعة السلة قبل الإرسال
+    function openCartReviewModal() {
+      if (cart.length === 0) {
+        alert("سلة الطلبات فارغة! الرجاء اختيار الوجبات والسندوتشات أولاً بالضغط على زر (+).");
         return;
       }
 
-      let totalSum = 0;
-      let orderText = "السلام عليكم ورحمة الله،\nأرغب في تقديم طلب جديد من مطعم *شاورمايشن*:\n\n";
-      orderText += "📋 *تفاصيل الطلب:*\n";
+      const container = document.getElementById('cartItemsListContainer');
+      container.innerHTML = "";
+      let total = 0;
 
-      itemsKeys.forEach((name, index) => {
-        let item = cart[name];
-        let itemTotal = item.price * item.qty;
-        totalSum += itemTotal;
-        orderText += `${index + 1}. ${name} × ${item.qty} = ${itemTotal.toFixed(2)} ر.ي\n`;
+      cart.forEach((item, index) => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+        const box = document.createElement('div');
+        box.className = 'cart-item-preview';
+        box.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <strong style="color:var(--secondary); font-size:1rem;">
+              ${index + 1}. ${item.name} × ${item.qty} = ${itemTotal.toFixed(2)} ر.ي
+            </strong>
+            <button onclick="removeItemFromCart(${index})" style="background:#ff4d4f; color:#fff; border:none; border-radius:4px; padding:2px 8px; cursor:pointer; font-weight:700;">حذف</button>
+          </div>
+          <div style="font-size:0.83rem; color:var(--text-muted); margin-top:5px; line-height:1.5;">
+            <strong style="color:var(--accent);">التفاصيل:</strong> ${item.options.join(' ، ')}
+            ${item.customNote ? `<br><strong style="color:#ff9e00;">ملاحظة:</strong> ${item.customNote}` : ''}
+          </div>
+        `;
+        container.appendChild(box);
       });
 
-      orderText += "\n----------------------";
-      orderText += `\n💰 *الإجمالي الكلي:* ${totalSum.toFixed(2)} ر.ي`;
-      orderText += "\n📍 الموقع / العنوان: (يرجى تزويدنا بالموقع للتوصيل)";
+      document.getElementById('cartModalTotal').innerText = total.toFixed(2);
+      document.getElementById('cartReviewModal').style.display = 'flex';
+    }
 
-      // فتح محادثة الواتساب
+    function closeCartReviewModal() {
+      document.getElementById('cartReviewModal').style.display = 'none';
+    }
+
+    function removeItemFromCart(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+      if (cart.length === 0) {
+        closeCartReviewModal();
+      } else {
+        openCartReviewModal();
+      }
+    }
+
+    // توليد رسالة واتساب الشاملة مع جميع الخيارات والتفاصيل والكميات
+    function sendFullOrderToWhatsApp() {
+      if (cart.length === 0) return;
+
+      const customerAddress = document.getElementById('customerFinalAddress').value.trim();
+      let totalSum = 0;
+      let orderText = "السلام عليكم ورحمة الله،\nأرغب في تقديم طلب جديد من مطعم *شاورمايشن*:\n\n";
+      orderText += "📋 *تفاصيل الطلبات والمواصفات:*\n";
+      orderText += "------------------------------------\n";
+
+      cart.forEach((item, idx) => {
+        const itemTotal = item.price * item.qty;
+        totalSum += itemTotal;
+        orderText += `*${idx + 1}. ${item.name}*\n`;
+        orderText += `▫️ *العدد:* ${item.qty} × ${item.price.toFixed(2)} = ${itemTotal.toFixed(2)} ر.ي\n`;
+        orderText += `▫️ *التفاصيل:* ${item.options.join(' ، ')}\n`;
+        if (item.customNote) {
+          orderText += `▫️ *ملاحظة خاصة:* ${item.customNote}\n`;
+        }
+        orderText += "\n";
+      });
+
+      orderText += "------------------------------------\n";
+      orderText += `💰 *الإجمالي الكلي:* ${totalSum.toFixed(2)} ر.ي\n`;
+
+      if (customerAddress) {
+        orderText += `📍 *العنوان / العميل:* ${customerAddress}\n`;
+      } else {
+        orderText += `📍 *الموقع:* (يرجى تزويدنا بالموقع للتوصيل)\n`;
+      }
+
+      orderText += "\nيرجى تأكيد استلام الطلب وتجهيزه بنفس المواصفات المذكورة. شكراً لكم!";
+
       const encodedMsg = encodeURIComponent(orderText);
       const whatsappUrl = `https://wa.me/${restaurantPhone}?text=${encodedMsg}`;
       window.open(whatsappUrl, '_blank');
+
+      cart = [];
+      updateCartUI();
+      closeCartReviewModal();
     }
   </script>
+  
 </body>
 </html>
